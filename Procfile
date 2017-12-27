@@ -1,1 +1,1 @@
-"web: gunicorn app.hello:app" 
+"web: python app2.py" 
