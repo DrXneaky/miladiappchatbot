@@ -1,5 +1,5 @@
 from flask import Flask,render_template, request
-from fonction import *
+from fonction1 import *
 
 app = Flask (__name__)
 PORT = 5000
@@ -16,7 +16,7 @@ def home():
 @app.route("/get")
 def get_bot_response():
     userText = request.args.get('msg')
-    return fonct(userText)
+    return fonc(userText)
 
 if __name__ == '__main__' :
     app.run(port = PORT , debug = DEBUG)
