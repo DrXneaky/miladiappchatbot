@@ -91,6 +91,12 @@ respond_already=False
 #FONCTIONS
 ############################################
 
+def word_in_sentence(words,liste):
+        spcm= False
+        for word in words :
+                if word in liste :
+                        spcm=True
+        return spcm
 
 def response_genrator (words,messageIn,messageOut):
         fck=""
@@ -115,6 +121,8 @@ def test (resp):
 def fonc(sentence):
 
         resp=''
+        d=''
+        f=''
      
         words=sentence.split()                        
 
@@ -146,6 +154,47 @@ def fonc(sentence):
         if not test(resp):
                 resp=response_genrator(words,transportIn,transportOut)
 
+        if not test(resp):
+                resp=response_genrator(words,cooperationIn,cooperationOut)
+
+        if not test(resp):
+                resp=response_genrator(words,certifIn,certifOut)
+
+        if not test(resp):
+                resp=response_genrator(words,moocIn,moocOut)
+                
+        if not test(resp):
+                        if word_in_sentence(words,supcom):
+                                for word in words:
+                                        if word.lower() in regime_etudeIn :
+                                                resp= resp +regime_etudeOut
+                                                d='done'
+                                                break
+
+                                if d!='done':
+                                        for word in words:
+                                                        if word.lower() in supcom_descriptionIn:
+                                                                resp = resp + supcom_descriptionOut
+                                                                f='done'
+                                                                break
+                                        if f!='done':
+                                                resp = response_genrator(words,supcom_reasonsIn,supcom_reasonsOut)
+
+                                        if not test(resp):
+                                                resp = response_genrator(words,emplacementIn, emplacementOut)
+
+                                        if not test(resp):
+                                                resp=resp+ "chet7eb ta3raf 3al sup'com?"
+
+        if not test(resp):
+                resp=response_genrator(words,helpIn,helpOut)
+
+        if not test(resp):
+                resp=response_genrator(words,complementIn,complement_response)
+
+
+        if not test(resp):
+                resp=response_genrator(words,thankIn,thankOut)
 
 
 
