@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask,render_template, request
 
 app = Flask (__name__)
 PORT = 5000
@@ -9,13 +9,13 @@ def not_found(error):
     return "Not Found."
 
 @app.route("/")
-def index():
-    return "Hello World!"
+def home():
+    return render_template("index.html")
 
 @app.route("/get")
 def get_bot_response():
     userText = request.args.get('msg')
-    return "i got you question"
+    return "i got your question"
 
 if __name__ == '__main__' :
     app.run(port = PORT , debug = DEBUG)
