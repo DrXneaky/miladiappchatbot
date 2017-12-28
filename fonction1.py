@@ -15,7 +15,7 @@ from textblob import TextBlob
 complementIn=['ma7lek',':*','n7ebek']
 regime_etudeIn=['na9raw','le9raya','l9raya','el9raya','9raya','chna9raw','t9ari','t9arri','etude',"d'etude"]
 supcom_descriptionIn = ['a7kili','chnya','a7kilna','parle','talk']
-greetIn = ['ahla','salut','hello','hi']
+greetIn = ['ahla','salut','hello','hi','hey']
 nameIn = ['chesmek','chesmik','esmek','chesmek?','chesmik?','esmek?']
 supcom =['supcom',"sup'com",'supcom?',"sup'com?",'supcom.',"sup'com.",'supcom!',"sup'com!",'supco',"sup'co","subcom","sub'com"]
 first_greetin_message='first greeting message : welcome hope you enjoy '
@@ -122,13 +122,16 @@ def fonc(sentence):
 
         resp=''
         d=''
+        c=''
         f=''
      
         words=sentence.split()                        
 
+        if not test(resp):
+                resp=response_genrator(words,greetIn,greetOut)
 
-
-
+        if not test(resp):
+                resp=response_genrator(words,nameIn,nameOut)
 
         if not test(resp):
                 resp=response_genrator(words,rangsIn,rangsOut)
@@ -162,6 +165,31 @@ def fonc(sentence):
 
         if not test(resp):
                 resp=response_genrator(words,moocIn,moocOut)
+
+        if not test(resp):
+                if word_in_sentence(words,voyage_etudeIn)and word_in_sentence(words,['etude',"d'etude",'etude?',"d'etude?"]) :
+                        resp=resp+voyage_etudeOut
+
+        if not test(resp):
+                if word_in_sentence(words,['double','doble','double'])and word_in_sentence(words,double_dipIn) :
+                        for word in words :
+                                if word in doubdipnbreIn :
+                                        resp = resp+doubdipnbreOut
+                                        break
+                        if not test(resp):
+                                resp=resp+double_dipOut
+        if not test(resp):
+                resp=response_genrator(words,restoIn,restOut)
+
+        if not test(resp):
+                        if word_in_sentence(words, foyerIn):
+                                for word in words:
+                                        if word.lower() in foyerEtatIn:
+                                                resp= resp+(random.choice(foyerEtatOut))
+                                                c='done'
+                                                break
+                                if c!='done':
+                                        resp=resp+(random.choice(foyerOut))
                 
         if not test(resp):
                         if word_in_sentence(words,supcom):
