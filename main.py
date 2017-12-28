@@ -10,6 +10,7 @@ def not_found(error):
 
 @app.route('/', methods=['GET'])
 def index():
+    sentence = input()
     return "my name is ahmed miladi"
 
 if __name__ == '__main__' :
