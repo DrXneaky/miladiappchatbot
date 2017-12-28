@@ -10,7 +10,7 @@ def not_found(error):
 
 @app.route('/', methods=['GET'])
 def index():
-    print ("my name is ahmed miladi")
+    return "my name is ahmed miladi"
 
 if __name__ == '__main__' :
     app.run(port = PORT , debug = DEBUG)
